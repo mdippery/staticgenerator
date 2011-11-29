@@ -156,6 +156,7 @@ class StaticGenerator(object):
         request.path_info = path
         request.META.setdefault('SERVER_PORT', 80)
         request.META.setdefault('SERVER_NAME', self.server_name)
+        request.META.setdefault('REMOTE_ADDR', '127.0.0.1')
 
         handler = DummyHandler()
         try:
