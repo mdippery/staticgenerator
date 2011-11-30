@@ -192,9 +192,9 @@ class StaticGenerator(object):
         """
         if path.endswith('/'):
             path = '%sindex.html' % path
-        # will not work on windows... meh
-        if query_string:
-            path += "?" + query_string
+        # Don't bother creating special filenames for query strings.
+        #if query_string:
+        #    path += "?" + query_string
 
         filename = self.fs.join(self.web_root, path.lstrip('/')).encode('utf-8')
         if len(filename) > 255:
